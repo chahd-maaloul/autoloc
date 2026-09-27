@@ -1,0 +1,78 @@
+# ================================
+#   Java / Maven
+# ================================
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**/target/
+!**/src/test/**/target/
+
+# ================================
+#   IntelliJ IDEA
+# ================================
+.idea/
+*.iws
+*.iml
+*.ipr
+out/
+
+# ================================
+#   Eclipse / STS
+# ================================
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+# ================================
+#   NetBeans
+# ================================
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+
+# ================================
+#   VS Code
+# ================================
+.vscode/
+
+# ================================
+#   Maven Wrapper
+# ================================
+.mvn/wrapper/maven-wrapper.properties
+mvnw
+mvnw.cmd
+
+# ================================
+#   Logs
+# ================================
+*.log
+logs/
+
+# ================================
+#   Système d'exploitation
+# ================================
+.DS_Store
+Thumbs.db
+*.swp
+
+# ================================
+#   Fichiers sensibles
+# ================================
+# Ne PAS versionner les mots de passe
+application-local.properties
+application-secret.properties
+*.env
+.env
+
+# ================================
+#   H2 Database (si utilisé un jour)
+# ================================
+*.db
+*.mv.db
+*.trace.db
