@@ -1,8 +1,8 @@
 package tn.esprit.autolocapi.domain;
-
 import jakarta.persistence.*;
 import lombok.*;
-
+import java.util.ArrayList;
+import java.util.List;
 @Entity
 @Table(name = "agence")
 @Getter
@@ -10,7 +10,6 @@ import lombok.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Agence {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idAgence;
@@ -26,4 +25,11 @@ public class Agence {
 
     @Column(nullable = false, length = 20)
     private String telephone;
+
+    @OneToMany(mappedBy = "agence", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<Vehicle> vehicules = new ArrayList<>();
+
+    // Une agence a plusieurs employés
+    @OneToMany(mappedBy = "agence", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<Employee> employees = new ArrayList<>();
 }

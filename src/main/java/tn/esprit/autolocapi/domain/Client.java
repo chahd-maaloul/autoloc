@@ -1,10 +1,9 @@
 package tn.esprit.autolocapi.domain;
-
 import jakarta.persistence.*;
-        import lombok.*;
-
-        import java.time.LocalDate;
-
+import lombok.*;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.List;
 @Entity
 @Table(name = "client")
 @Getter
@@ -12,7 +11,6 @@ import jakarta.persistence.*;
 @NoArgsConstructor
 @AllArgsConstructor
 public class Client {
-
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long idClient;
@@ -34,4 +32,8 @@ public class Client {
 
     @Column(nullable = false)
     private LocalDate dateInscription;
+
+    // Un client a plusieurs réservations
+    @OneToMany(mappedBy = "client", cascade = CascadeType.ALL, orphanRemoval = true, fetch = FetchType.LAZY)
+    private List<Reservation> reservations = new ArrayList<>();
 }
